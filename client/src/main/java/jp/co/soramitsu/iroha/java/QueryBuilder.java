@@ -36,12 +36,12 @@ import lombok.val;
 
 public class QueryBuilder {
 
-  public class Ordering {
+  public static class Ordering {
 
     List<Sequence> fieldOrdering = new ArrayList<>();
 
     @Value
-    class Sequence {
+    static class Sequence {
       public Sequence(Field field, Direction direction) {
         this.field = field;
         this.direction = direction;
@@ -51,11 +51,11 @@ public class QueryBuilder {
       Direction direction;
     }
 
-    void addFieldOrdering(Field field, Direction direction) {
+    public void addFieldOrdering(Field field, Direction direction) {
       addFieldOrdering(new Sequence(field, direction));
     }
 
-    void addFieldOrdering(Sequence sequence) {
+    public void addFieldOrdering(Sequence sequence) {
       fieldOrdering.add(sequence);
     }
 
